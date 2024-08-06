@@ -10,19 +10,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.teal),
       home: Scaffold(
-        backgroundColor: Colors.yellow,
         appBar: AppBar(
           title: Text("soucius appbar"),
           backgroundColor: Colors.teal,
         ),
-        body: Container(
-          color: Colors.purple,
-          // child: Text(
-          //   "soucius" * 2,
-          //   textAlign: TextAlign.center,
-          // ),
-          constraints: BoxConstraints(
-              minHeight: 100, minWidth: 100, maxHeight: 200, maxWidth: 200),
+        body: Center(
+          child: Container(
+            width: 200,
+            height: 200,
+            color: Colors.red,
+            // alignment: Alignment.center,
+            child: Container(
+              alignment: Alignment.center,
+              color: Colors.blue,
+              margin: EdgeInsets.all(40),
+              width: 50,
+              height: 50,
+              child: Text("soucius"),
+            ),
+          ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
