@@ -15,19 +15,14 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.teal,
         ),
         body: Center(
+          widthFactor: 3,
+          heightFactor: 3,
           child: Container(
-            width: 200,
-            height: 200,
+            alignment: Alignment.center,
+            width: 100,
+            height: 100,
             color: Colors.red,
-            // alignment: Alignment.center,
-            child: Container(
-              alignment: Alignment.center,
-              color: Colors.blue,
-              margin: EdgeInsets.all(40),
-              width: 50,
-              height: 50,
-              child: Text("soucius"),
-            ),
+            child: Text("soucius"),
           ),
         ),
         floatingActionButton: FloatingActionButton(
