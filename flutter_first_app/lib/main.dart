@@ -10,14 +10,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.teal),
       home: Scaffold(
+        backgroundColor: Colors.yellow,
         appBar: AppBar(
           title: Text("soucius appbar"),
           backgroundColor: Colors.teal,
         ),
-        body: Text(
-          "soucius body",
-          style: TextStyle(
-              color: Colors.red, fontSize: 24, fontWeight: FontWeight.w500),
+        body: Container(
+          color: Colors.purple,
+          // child: Text(
+          //   "soucius" * 2,
+          //   textAlign: TextAlign.center,
+          // ),
+          constraints: BoxConstraints(
+              minHeight: 100, minWidth: 100, maxHeight: 200, maxWidth: 200),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
