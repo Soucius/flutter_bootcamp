@@ -12,7 +12,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "My Counter App",
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.teal,
+        textTheme: TextTheme(
+          headlineLarge: TextStyle(
+            color: Colors.purple,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       home: MyHomePage(),
     );
@@ -40,13 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "Button Pressed:",
-              style: TextStyle(fontSize: 24),
-            ),
+            MyNewTextWidget(),
             Text(
               _counter.toString(),
-              style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
           ],
         ),
@@ -69,5 +72,19 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter++;
     });
+  }
+}
+
+class MyNewTextWidget extends StatelessWidget {
+  const MyNewTextWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      "Button Pressed:",
+      style: TextStyle(fontSize: 24),
+    );
   }
 }
