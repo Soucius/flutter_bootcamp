@@ -15,9 +15,14 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.teal,
         ),
         body: Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: flexibleContainer,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              createRow(),
+              Expanded(
+                child: createColumn(),
+              ),
+            ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
@@ -31,6 +36,163 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.red,
         ),
       ),
+    );
+  }
+
+  Column createColumn() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            width: 65,
+            height: 65,
+            margin: EdgeInsets.only(top: 15),
+            color: Colors.orange.shade100,
+            child: Text(
+              "S",
+              style: TextStyle(fontSize: 24),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            width: 65,
+            height: 65,
+            margin: EdgeInsets.only(top: 15),
+            color: Colors.orange.shade200,
+            child: Text(
+              "O",
+              style: TextStyle(fontSize: 24),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            width: 65,
+            height: 65,
+            margin: EdgeInsets.only(top: 15),
+            color: Colors.orange.shade300,
+            child: Text(
+              "U",
+              style: TextStyle(fontSize: 24),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            width: 65,
+            height: 65,
+            margin: EdgeInsets.only(top: 15),
+            color: Colors.orange.shade400,
+            child: Text(
+              "C",
+              style: TextStyle(fontSize: 24),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            width: 65,
+            height: 65,
+            margin: EdgeInsets.only(top: 15),
+            color: Colors.orange.shade500,
+            child: Text(
+              "I",
+              style: TextStyle(fontSize: 24),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            width: 65,
+            height: 65,
+            margin: EdgeInsets.only(top: 15),
+            color: Colors.orange.shade600,
+            child: Text(
+              "U",
+              style: TextStyle(fontSize: 24),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            width: 65,
+            height: 65,
+            margin: EdgeInsets.only(top: 15),
+            color: Colors.orange.shade700,
+            child: Text(
+              "S",
+              style: TextStyle(fontSize: 24),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row createRow() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Container(
+          color: Colors.orange.shade200,
+          width: 65,
+          height: 65,
+          alignment: Alignment.center,
+          child: Text(
+            "K",
+            style: TextStyle(fontSize: 24),
+          ),
+        ),
+        Container(
+          color: Colors.orange.shade400,
+          width: 65,
+          height: 65,
+          alignment: Alignment.center,
+          child: Text(
+            "A",
+            style: TextStyle(fontSize: 24),
+          ),
+        ),
+        Container(
+          color: Colors.orange.shade600,
+          width: 65,
+          height: 65,
+          alignment: Alignment.center,
+          child: Text(
+            "E",
+            style: TextStyle(fontSize: 24),
+          ),
+        ),
+        Container(
+          color: Colors.orange.shade800,
+          width: 65,
+          height: 65,
+          alignment: Alignment.center,
+          child: Text(
+            "N",
+            style: TextStyle(fontSize: 24),
+          ),
+        ),
+        Container(
+          color: Colors.orange.shade900,
+          width: 65,
+          height: 65,
+          alignment: Alignment.center,
+          child: Text(
+            "J",
+            style: TextStyle(fontSize: 24),
+          ),
+        ),
+      ],
     );
   }
 
