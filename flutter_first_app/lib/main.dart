@@ -5,6 +5,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  String _img =
+      "https://global.yamaha-motor.com/business/mc/img/index_key_005_sp.jpg";
+
+  String _smallImage =
+      "https://cdn.pixabay.com/photo/2022/04/24/11/05/bird-7153402_640.jpg";
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,14 +21,38 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.teal,
         ),
         body: Center(
-          widthFactor: 3,
-          heightFactor: 3,
           child: Container(
-            alignment: Alignment.center,
-            width: 100,
-            height: 100,
-            color: Colors.red,
-            child: Text("soucius"),
+            padding: EdgeInsets.all(20),
+            child: Text(
+              "soucius",
+              style: TextStyle(fontSize: 100),
+            ),
+            decoration: BoxDecoration(
+              color: Colors.orange,
+              shape: BoxShape.rectangle,
+              border: Border.all(color: Colors.black, width: 4),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+              ),
+              image: DecorationImage(
+                image: NetworkImage(_smallImage),
+                fit: BoxFit.scaleDown,
+                repeat: ImageRepeat.repeat,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.green,
+                  offset: Offset(0, 20),
+                  blurRadius: 10,
+                ),
+                BoxShadow(
+                  color: Colors.yellow,
+                  offset: Offset(0, -20),
+                  blurRadius: 10,
+                ),
+              ],
+            ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
