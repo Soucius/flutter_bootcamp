@@ -20,39 +20,47 @@ class MyApp extends StatelessWidget {
           title: Text("soucius appbar"),
           backgroundColor: Colors.teal,
         ),
-        body: Center(
-          child: Container(
-            padding: EdgeInsets.all(20),
-            child: Text(
-              "soucius",
-              style: TextStyle(fontSize: 100),
-            ),
-            decoration: BoxDecoration(
-              color: Colors.orange,
-              shape: BoxShape.rectangle,
-              border: Border.all(color: Colors.black, width: 4),
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(30),
-                topRight: Radius.circular(30),
+        body: Container(
+          color: Colors.red.shade300,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text("S"),
+                  Text("O"),
+                  Text("U"),
+                  Text("C"),
+                  Text("I"),
+                  Text("U"),
+                  Text("S"),
+                ],
               ),
-              image: DecorationImage(
-                image: NetworkImage(_smallImage),
-                fit: BoxFit.scaleDown,
-                repeat: ImageRepeat.repeat,
+              Icon(
+                Icons.add_circle,
+                size: 64,
+                color: Colors.green,
               ),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.green,
-                  offset: Offset(0, 20),
-                  blurRadius: 10,
-                ),
-                BoxShadow(
-                  color: Colors.yellow,
-                  offset: Offset(0, -20),
-                  blurRadius: 10,
-                ),
-              ],
-            ),
+              Icon(
+                Icons.add_circle,
+                size: 64,
+                color: Colors.red,
+              ),
+              Icon(
+                Icons.add_circle,
+                size: 64,
+                color: Colors.blue,
+              ),
+              Icon(
+                Icons.add_circle,
+                size: 64,
+                color: Colors.orange,
+              ),
+            ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
@@ -64,6 +72,44 @@ class MyApp extends StatelessWidget {
             color: Colors.white,
           ),
           backgroundColor: Colors.red,
+        ),
+      ),
+    );
+  }
+
+  Widget containerLessons() {
+    return Center(
+      child: Container(
+        padding: EdgeInsets.all(20),
+        child: Text(
+          "soucius",
+          style: TextStyle(fontSize: 100),
+        ),
+        decoration: BoxDecoration(
+          color: Colors.orange,
+          shape: BoxShape.rectangle,
+          border: Border.all(color: Colors.black, width: 4),
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+          image: DecorationImage(
+            image: NetworkImage(_smallImage),
+            fit: BoxFit.scaleDown,
+            repeat: ImageRepeat.repeat,
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.green,
+              offset: Offset(0, 20),
+              blurRadius: 10,
+            ),
+            BoxShadow(
+              color: Colors.yellow,
+              offset: Offset(0, -20),
+              blurRadius: 10,
+            ),
+          ],
         ),
       ),
     );
