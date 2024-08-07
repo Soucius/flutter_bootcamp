@@ -5,12 +5,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  String _img =
-      "https://global.yamaha-motor.com/business/mc/img/index_key_005_sp.jpg";
-
-  String _smallImage =
-      "https://cdn.pixabay.com/photo/2022/04/24/11/05/bird-7153402_640.jpg";
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,46 +15,9 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.teal,
         ),
         body: Container(
-          color: Colors.red.shade300,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text("S"),
-                  Text("O"),
-                  Text("U"),
-                  Text("C"),
-                  Text("I"),
-                  Text("U"),
-                  Text("S"),
-                ],
-              ),
-              Icon(
-                Icons.add_circle,
-                size: 64,
-                color: Colors.green,
-              ),
-              Icon(
-                Icons.add_circle,
-                size: 64,
-                color: Colors.red,
-              ),
-              Icon(
-                Icons.add_circle,
-                size: 64,
-                color: Colors.blue,
-              ),
-              Icon(
-                Icons.add_circle,
-                size: 64,
-                color: Colors.orange,
-              ),
-            ],
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: flexibleContainer,
           ),
         ),
         floatingActionButton: FloatingActionButton(
@@ -75,6 +32,88 @@ class MyApp extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  List<Widget> get expandedContainer {
+    return [
+      Expanded(
+        flex: 2,
+        child: Container(
+          width: 75,
+          height: 75,
+          color: Colors.yellow,
+        ),
+      ),
+      Expanded(
+        flex: 2,
+        child: Container(
+          width: 75,
+          height: 75,
+          color: Colors.red,
+        ),
+      ),
+      Expanded(
+        flex: 2,
+        child: Container(
+          width: 75,
+          height: 75,
+          color: Colors.blue,
+        ),
+      ),
+      Expanded(
+        flex: 2,
+        child: Container(
+          width: 75,
+          height: 75,
+          color: Colors.orange,
+        ),
+      ),
+    ];
+  }
+
+  List<Widget> get flexibleContainer {
+    return [
+      Flexible(
+        flex: 1,
+        child: Container(
+          width: 200,
+          height: 300,
+          color: Colors.yellow,
+        ),
+      ),
+      Flexible(
+        flex: 1,
+        child: Container(
+          width: 100,
+          height: 300,
+          color: Colors.red,
+        ),
+      ),
+      Flexible(
+        flex: 1,
+        child: Container(
+          width: 100,
+          height: 300,
+          color: Colors.blue,
+        ),
+      ),
+      Flexible(
+        flex: 1,
+        child: Container(
+          width: 100,
+          height: 300,
+          color: Colors.purple,
+        ),
+      ),
+      Flexible(
+        flex: 1,
+        child: Container(
+          width: 100,
+          height: 300,
+          color: Colors.red,
+        ),
+      ),
+    ];
   }
 
   Widget containerLessons() {
@@ -94,7 +133,7 @@ class MyApp extends StatelessWidget {
             topRight: Radius.circular(30),
           ),
           image: DecorationImage(
-            image: NetworkImage(_smallImage),
+            image: NetworkImage(""),
             fit: BoxFit.scaleDown,
             repeat: ImageRepeat.repeat,
           ),
