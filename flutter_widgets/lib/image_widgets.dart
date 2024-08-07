@@ -10,36 +10,63 @@ class ImageWidgets extends StatelessWidget {
 
     return Center(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Container(
-            color: Colors.red.shade300,
-            width: 150,
-            height: 150,
-            child: Image.asset(
-              "assets/images/ducati.jpg",
-              fit: BoxFit.cover,
+          IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(
+                  child: Container(
+                    color: Colors.red.shade300,
+                    child: Image.asset(
+                      "assets/images/ducati.jpg",
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    color: Colors.red.shade300,
+                    child: Image.network(
+                      _imgURL,
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    color: Colors.red.shade300,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: CircleAvatar(
+                        // child: Text(
+                        //   "S",
+                        //   style: Theme.of(context).textTheme.headlineLarge,
+                        // ),
+                        backgroundImage: NetworkImage(_imgURL),
+                        backgroundColor: Colors.amber,
+                        foregroundColor: Colors.red,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           Container(
-            color: Colors.red.shade300,
-            width: 150,
-            height: 150,
-            child: Image.network(
-              _imgURL,
-              fit: BoxFit.cover,
-            ),
+            height: 200,
+            child: FadeInImage.assetNetwork(
+                fit: BoxFit.cover,
+                placeholder: "assets/images/loading.gif",
+                image: _imgURL),
           ),
-          Container(
-            color: Colors.red.shade300,
-            child: CircleAvatar(
-              // child: Text(
-              //   "S",
-              //   style: Theme.of(context).textTheme.headlineLarge,
-              // ),
-              backgroundImage: NetworkImage(_imgURL),
-              backgroundColor: Colors.amber,
-              foregroundColor: Colors.red,
-              radius: 75,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Placeholder(
+                color: Colors.blue,
+              ),
             ),
           ),
         ],
