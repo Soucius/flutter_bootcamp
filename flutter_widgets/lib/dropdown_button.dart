@@ -9,14 +9,14 @@ class DropdownButtonUsage extends StatefulWidget {
 
 class _DropdownButtonState extends State<DropdownButtonUsage> {
   String? _choosedCity = null;
-  List<String> _allCities = [
-    "Istanbul",
-    "Bursa",
-    "Ankara",
-    "Izmir",
-    "Adiyaman",
-    "Trabzon"
-  ];
+  // List<String> _allCities = [
+  //   "Istanbul",
+  //   "Bursa",
+  //   "Ankara",
+  //   "Izmir",
+  //   "Adiyaman",
+  //   "Trabzon"
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +30,13 @@ class _DropdownButtonState extends State<DropdownButtonUsage> {
           color: Colors.purple,
         ),
         style: TextStyle(color: Colors.red),
-        items: _allCities.map((String? city) {
-          DropdownMenuItem(
-            child: Text(city),
-            value: city,
-          );
-        }).toList(),
+        // items: _allCities.map((String? city) {
+        //   DropdownMenuItem(
+        //     child: Text(city),
+        //     value: city,
+        //   );
+        // }).toList(),
+        items: [DropdownMenuItem(child: Text("sss"))],
         value: _choosedCity,
         onChanged: (String? value) {
           setState(() {
