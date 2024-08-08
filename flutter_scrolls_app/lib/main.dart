@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_scrolls_app/card_list_tile.dart';
+import 'package:flutter_scrolls_app/listview.dart';
 
 void main() => runApp(const MyApp());
 
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: CardListTile(),
+      home: Listview(),
     );
   }
 }
