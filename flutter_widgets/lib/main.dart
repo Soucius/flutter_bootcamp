@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/button_types.dart';
+import 'package:flutter_widgets/dropdown_button.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,9 +17,9 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Image Widgets"),
+          title: Text("Dropdown Button"),
         ),
-        body: ButtonTypes(),
+        body: DropdownButtonUsage(),
       ),
     );
   }
