@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/dropdown_button.dart';
+import 'package:flutter_widgets/popup_menu.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,14 +12,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "My Counter App",
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-      ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Dropdown Button"),
+          backgroundColor: Colors.purple,
+          title: Text(
+            "Popup Menu",
+            style: TextStyle(color: Colors.white),
+          ),
+          foregroundColor: Colors.white,
+          actions: [PopupMenu()],
         ),
-        body: DropdownButtonUsage(),
+        body: PopupMenu(),
       ),
     );
   }
