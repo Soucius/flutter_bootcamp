@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/image_widgets.dart';
+import 'package:flutter_widgets/button_types.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,18 +14,12 @@ class MyApp extends StatelessWidget {
       title: "My Counter App",
       theme: ThemeData(
         primarySwatch: Colors.teal,
-        textTheme: TextTheme(
-          headlineLarge: TextStyle(
-            color: Colors.purple,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
       ),
       home: Scaffold(
         appBar: AppBar(
           title: Text("Image Widgets"),
         ),
-        body: ImageWidgets(),
+        body: ButtonTypes(),
       ),
     );
   }
