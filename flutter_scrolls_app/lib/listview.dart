@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class Listview extends StatelessWidget {
   Listview({super.key});
@@ -28,7 +29,16 @@ class Listview extends StatelessWidget {
               index % 2 == 0 ? Colors.orange.shade100 : Colors.purple.shade100,
           child: ListTile(
             onTap: () {
-              print("element clicked: ${index + 1}");
+              if (index % 2 == 0) {
+                EasyLoading.instance.backgroundColor = Colors.red;
+              } else {
+                EasyLoading.instance.backgroundColor = Colors.blue;
+              }
+
+              EasyLoading.showToast("element clicked",
+                  duration: Duration(seconds: 3),
+                  dismissOnTap: true,
+                  toastPosition: EasyLoadingToastPosition.bottom);
             },
             title: Text(nowStudent.name),
             subtitle: Text(nowStudent.lastname),
