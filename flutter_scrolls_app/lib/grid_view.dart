@@ -16,7 +16,25 @@ class Gridview extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Container(
               alignment: Alignment.center,
-              color: Colors.teal[100 * ((index + 1) % 8)],
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.red,
+                  width: 1,
+                  style: BorderStyle.solid,
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(7)),
+                color: Colors.red[100 * ((index + 1) % 8)],
+                gradient: LinearGradient(
+                    colors: [Colors.blue, Colors.green],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter),
+                image: DecorationImage(
+                  image: AssetImage(
+                      "/flutter_scrolls_app/assets/images/ducati.jpg"),
+                  fit: BoxFit.fill,
+                ),
+              ),
+              margin: EdgeInsets.all(20),
               child: Text(
                 "hello soucius ${index + 1}",
                 textAlign: TextAlign.center,
