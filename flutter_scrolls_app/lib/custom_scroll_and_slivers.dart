@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 class CustomScrollAndSlivers extends StatelessWidget {
   const CustomScrollAndSlivers({super.key});
@@ -20,9 +21,9 @@ class CustomScrollAndSlivers extends StatelessWidget {
           SliverAppBar(
             // title: Text("sliver app bar"),
             backgroundColor: Colors.red,
-            expandedHeight: 300,
-            floating: true,
-            snap: true,
+            expandedHeight: 100,
+            floating: false,
+            snap: false,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               title: Text("sliver app bar"),
@@ -33,9 +34,25 @@ class CustomScrollAndSlivers extends StatelessWidget {
               ),
             ),
           ),
-          SliverList(
-            delegate: SliverChildListDelegate(staticListElements),
-          )
+          // SliverList(
+          //   delegate: SliverChildListDelegate(staticListElements),
+          // ),
+          SliverPadding(
+            padding: EdgeInsets.all(10),
+            sliver: SliverList(
+              delegate: SliverChildBuilderDelegate(
+                _dynamicElementCreator,
+                childCount: 10,
+              ),
+            ),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.all(10),
+            sliver: SliverFixedExtentList(
+              delegate: SliverChildBuilderDelegate(_dynamicElementCreator),
+              itemExtent: 100,
+            ),
+          ),
         ],
       ),
     );
@@ -134,5 +151,27 @@ class CustomScrollAndSlivers extends StatelessWidget {
         alignment: Alignment.center,
       ),
     ];
+  }
+
+  Widget? _dynamicElementCreator(BuildContext context, int index) {
+    return Container(
+      height: 100,
+      child: Text(
+        "dynamic list element ${index + 1}",
+        style: TextStyle(fontSize: 18),
+        textAlign: TextAlign.center,
+      ),
+      color: _randomColorGenerator(),
+      alignment: Alignment.center,
+    );
+  }
+
+  Color _randomColorGenerator() {
+    return Color.fromARGB(
+      math.Random().nextInt(255),
+      math.Random().nextInt(255),
+      math.Random().nextInt(255),
+      math.Random().nextInt(255),
+    );
   }
 }
