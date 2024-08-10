@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_scrolls_app/grid_view.dart';
+import 'package:flutter_scrolls_app/custom_scroll_and_slivers.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,8 +30,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: Gridview(),
+      home: CustomScrollAndSlivers(),
       builder: EasyLoading.init(),
+      theme: ThemeData(
+          // brightness: Brightness.dark,
+          ),
     );
   }
 }
