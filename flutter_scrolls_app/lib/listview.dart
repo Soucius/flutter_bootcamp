@@ -28,6 +28,7 @@ class Listview extends StatelessWidget {
           color:
               index % 2 == 0 ? Colors.orange.shade100 : Colors.purple.shade100,
           child: ListTile(
+            onLongPress: () => _alertDialog(context, nowStudent),
             onTap: () {
               if (index % 2 == 0) {
                 EasyLoading.instance.backgroundColor = Colors.red;
@@ -98,6 +99,37 @@ class Listview extends StatelessWidget {
           .toList(),
     );
   }
+
+  void _alertDialog(BuildContext context, Student choosedStudent) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text(choosedStudent.toString()),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: [
+                  Text("soucius" * 100),
+                  Text("soucius1" * 100),
+                  Text("soucius2" * 100),
+                ],
+              ),
+            ),
+            actions: [
+              ButtonBar(
+                children: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text("close")),
+                  TextButton(onPressed: () {}, child: Text("ok")),
+                ],
+              ),
+            ],
+          );
+        });
+  }
 }
 
 class Student {
@@ -106,4 +138,9 @@ class Student {
   final String lastname;
 
   Student(this.id, this.name, this.lastname);
+
+  @override
+  String toString() {
+    return "name: $name, lastname: $lastname, id: $id";
+  }
 }
