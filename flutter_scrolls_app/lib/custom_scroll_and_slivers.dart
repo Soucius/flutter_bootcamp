@@ -37,20 +37,32 @@ class CustomScrollAndSlivers extends StatelessWidget {
           // SliverList(
           //   delegate: SliverChildListDelegate(staticListElements),
           // ),
+          // SliverPadding(
+          //   padding: EdgeInsets.all(10),
+          //   sliver: SliverList(
+          //     delegate: SliverChildBuilderDelegate(
+          //       _dynamicElementCreator,
+          //       childCount: 10,
+          //     ),
+          //   ),
+          // ),
+          // SliverPadding(
+          //   padding: EdgeInsets.all(10),
+          //   sliver: SliverFixedExtentList(
+          //     delegate: SliverChildBuilderDelegate(_dynamicElementCreator),
+          //     itemExtent: 100,
+          //   ),
+          // ),
+
           SliverPadding(
             padding: EdgeInsets.all(10),
-            sliver: SliverList(
+            sliver: SliverGrid(
               delegate: SliverChildBuilderDelegate(
                 _dynamicElementCreator,
                 childCount: 10,
               ),
-            ),
-          ),
-          SliverPadding(
-            padding: EdgeInsets.all(10),
-            sliver: SliverFixedExtentList(
-              delegate: SliverChildBuilderDelegate(_dynamicElementCreator),
-              itemExtent: 100,
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
             ),
           ),
         ],
