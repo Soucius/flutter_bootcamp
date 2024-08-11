@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class RedPage extends StatelessWidget {
   RedPage({super.key});
   int _randomNum = 0;
