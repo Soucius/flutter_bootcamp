@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_navigations/green_page.dart';
-import 'package:flutter_navigations/orange_page.dart';
 import 'package:flutter_navigations/red_page.dart';
+import 'package:flutter_navigations/route_generator.dart';
 
 void main() => runApp(const MyApp());
 
@@ -13,24 +13,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      // home: HomePage(),
-      routes: {
-        "/": (context) => HomePage(),
-        "/redPage": (context) => RedPage(),
-        "/orangePage": (context) => OrangePage(),
-      },
-      onUnknownRoute: (settings) => MaterialPageRoute(
-          builder: (context) => Scaffold(
-                appBar: AppBar(
-                  title: Text("error page"),
-                ),
-                body: Center(
-                  child: Text(
-                    "404",
-                    style: TextStyle(fontSize: 64),
-                  ),
-                ),
-              )),
+      home: HomePage(),
+      // routes: {
+      //   "/": (context) => HomePage(),
+      //   "/redPage": (context) => RedPage(),
+      //   "/orangePage": (context) => OrangePage(),
+      // },
+      // onUnknownRoute: (settings) => MaterialPageRoute(
+      //     builder: (context) => Scaffold(
+      //           appBar: AppBar(
+      //             title: Text("error page"),
+      //           ),
+      //           body: Center(
+      //             child: Text(
+      //               "404",
+      //               style: TextStyle(fontSize: 64),
+      //             ),
+      //           ),
+      //         )),
+      onGenerateRoute: RouteGenerator.routeGenerator,
     );
   }
 }
@@ -131,6 +132,17 @@ class HomePage extends StatelessWidget {
                   backgroundColor: Colors.blue.shade600),
               child: Text(
                 "go orange",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/yellowPage");
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.yellow.shade600),
+              child: Text(
+                "go yellow",
                 style: TextStyle(color: Colors.white),
               ),
             ),
