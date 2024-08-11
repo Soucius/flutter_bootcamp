@@ -17,6 +17,7 @@ class _PopupMenuState extends State<PopupMenu> {
       child: PopupMenuButton<String>(
         onSelected: (String city) {
           print("choosed city: $city");
+          print(_choosedCity);
 
           setState(() {
             _choosedCity = city;

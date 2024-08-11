@@ -19,8 +19,6 @@ class RouteGenerator {
         return _generateRoute(YellowPage(), settings);
 
       case "/studentList":
-        print(settings.name);
-        print(settings.arguments);
         return _generateRoute(StudentList(), settings);
 
       default:
