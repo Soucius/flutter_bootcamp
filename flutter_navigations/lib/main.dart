@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_navigations/green_page.dart';
+import 'package:flutter_navigations/orange_page.dart';
 import 'package:flutter_navigations/red_page.dart';
 
 void main() => runApp(const MyApp());
@@ -12,7 +13,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: HomePage(),
+      // home: HomePage(),
+      routes: {
+        "/": (context) => HomePage(),
+        "/redPage": (context) => RedPage(),
+        "/orangePage": (context) => OrangePage(),
+      },
+      onUnknownRoute: (settings) => MaterialPageRoute(
+          builder: (context) => Scaffold(
+                appBar: AppBar(
+                  title: Text("error page"),
+                ),
+                body: Center(
+                  child: Text(
+                    "404",
+                    style: TextStyle(fontSize: 64),
+                  ),
+                ),
+              )),
     );
   }
 }
@@ -91,6 +109,28 @@ class HomePage extends StatelessWidget {
                   backgroundColor: Colors.red.shade600),
               child: Text(
                 "push replacement",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/redPage");
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue.shade600),
+              child: Text(
+                "push named",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/orangePage");
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue.shade600),
+              child: Text(
+                "go orange",
                 style: TextStyle(color: Colors.white),
               ),
             ),
