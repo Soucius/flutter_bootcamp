@@ -3,19 +3,25 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_navigations/main.dart';
 import 'package:flutter_navigations/orange_page.dart';
+import 'package:flutter_navigations/student_list.dart';
 import 'package:flutter_navigations/yellow_page.dart';
 
 class RouteGenerator {
   static Route<dynamic>? routeGenerator(RouteSettings settings) {
     switch (settings.name) {
       case "/":
-        return _generateRoute(HomePage());
+        return _generateRoute(HomePage(), settings);
 
       case "/orangePage":
-        return _generateRoute(OrangePage());
+        return _generateRoute(OrangePage(), settings);
 
       case "/yellowPage":
-        return _generateRoute(YellowPage());
+        return _generateRoute(YellowPage(), settings);
+
+      case "/studentList":
+        print(settings.name);
+        print(settings.arguments);
+        return _generateRoute(StudentList(), settings);
 
       default:
         return MaterialPageRoute(
@@ -33,7 +39,7 @@ class RouteGenerator {
     }
   }
 
-  static Route<dynamic>? _generateRoute(Widget widget) {
+  static Route<dynamic>? _generateRoute(Widget widget, RouteSettings settings) {
     if (defaultTargetPlatform == TargetPlatform.iOS) {
       return CupertinoPageRoute(builder: (context) => widget);
     } else if (defaultTargetPlatform == TargetPlatform.android) {

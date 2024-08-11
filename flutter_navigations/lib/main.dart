@@ -146,6 +146,20 @@ class HomePage extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  "/studentList",
+                  arguments: 60,
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange.shade600),
+              child: Text(
+                "create list",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
           ],
         ),
       ),
