@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_navigations/green_page.dart';
 import 'package:flutter_navigations/red_page.dart';
 
 void main() => runApp(const MyApp());
@@ -23,7 +24,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Material App Bar'),
+        title: Text('navigations'),
       ),
       body: Center(
         child: Column(
@@ -52,6 +53,44 @@ class HomePage extends StatelessWidget {
                   backgroundColor: Colors.red.shade600),
               child: Text(
                 "go red page android",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).maybePop();
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red.shade600),
+              child: Text(
+                "maybe pop",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                if (Navigator.canPop(context)) {
+                  print("can pop");
+                } else {
+                  print("can not pop");
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red.shade600),
+              child: Text(
+                "can pop",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => GreenPage()));
+              },
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red.shade600),
+              child: Text(
+                "push replacement",
                 style: TextStyle(color: Colors.white),
               ),
             ),

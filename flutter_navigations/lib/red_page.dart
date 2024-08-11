@@ -41,6 +41,21 @@ class RedPage extends StatelessWidget {
                 },
                 child: Text("go back"),
               ),
+              ElevatedButton(
+                onPressed: () {
+                  if (Navigator.canPop(context)) {
+                    print("can pop");
+                  } else {
+                    print("can not pop");
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red.shade600),
+                child: Text(
+                  "can pop",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             ],
           ),
         ),
