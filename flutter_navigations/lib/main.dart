@@ -29,9 +29,10 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             ElevatedButton(
-              onPressed: () {
-                Navigator.push(context,
+              onPressed: () async {
+                int? _num = await Navigator.push<int>(context,
                     CupertinoPageRoute(builder: (context) => RedPage()));
+                print("homepage num: $_num");
               },
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red.shade300),
@@ -43,7 +44,9 @@ class HomePage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => RedPage()));
+                    .push<int>(
+                        MaterialPageRoute(builder: (context) => RedPage()))
+                    .then((int? value) => print("home page num: $value"));
               },
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red.shade600),
