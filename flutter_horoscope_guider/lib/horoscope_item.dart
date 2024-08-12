@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_horoscope_guider/horoscope_detail.dart';
 import 'package:flutter_horoscope_guider/model/horoscope.dart';
 
 class HoroscopeItem extends StatelessWidget {
@@ -16,6 +17,11 @@ class HoroscopeItem extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) =>
+                      HoroscopeDetail(selectedHoroscope: listedHoroscope)));
+            },
             leading: Image.asset(
               "images/" + listedHoroscope.horoscopeThumbnail,
             ),

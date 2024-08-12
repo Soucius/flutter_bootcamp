@@ -38,7 +38,7 @@ class HoroscopeList extends StatelessWidget {
       String horoscopeThumbnail =
           Strings.HOROSCOPE_NAMES[i].toLowerCase() + "${i + 1}.png";
       String horoscopeImage =
-          Strings.HOROSCOPE_NAMES[i].toLowerCase() + "_buyuk${i + 1}.png";
+          Strings.HOROSCOPE_NAMES[i].toLowerCase() + "_big${i + 1}.png";
 
       Horoscope willAddHoroscope = Horoscope(horoscopeName, horoscopeDate,
           horoscopeDetail, horoscopeThumbnail, horoscopeImage);
