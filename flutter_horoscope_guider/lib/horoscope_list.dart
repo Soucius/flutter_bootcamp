@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_horoscope_guider/data/strings.dart';
+import 'package:flutter_horoscope_guider/horoscope_item.dart';
 import 'model/horoscope.dart';
 
 class HoroscopeList extends StatelessWidget {
@@ -17,7 +18,12 @@ class HoroscopeList extends StatelessWidget {
         title: Text("horoscope list"),
       ),
       body: Center(
-        child: Text("horoscope list will be here"),
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return HoroscopeItem(listedHoroscope: allHoroscopes[index]);
+          },
+          itemCount: allHoroscopes.length,
+        ),
       ),
     );
   }
