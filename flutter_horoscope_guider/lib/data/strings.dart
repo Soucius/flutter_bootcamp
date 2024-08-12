@@ -5,48 +5,48 @@ class Strings {
   static const String APP_NAME = "horoscope guider";
 
   static const List<String> HOROSCOPE_NAMES = [
-    "Koc",
-    "Boga",
-    "Ikizler",
-    "Yengec",
-    "Aslan",
-    "Basak",
-    "Terazi",
-    "Akrep",
-    "Yay",
-    "Oglak",
-    "Kova",
-    "Balik"
+    "Aries",
+    "Taurus",
+    "Gemini",
+    "Cancer",
+    "Leo",
+    "Virgo",
+    "Libra",
+    "Scorpio",
+    "Sagittarius",
+    "Capricorn",
+    "Aquarius",
+    "Pisces"
   ];
 
   static const List<String> HOROSCOPE_DATES = [
-    "21 Mart - 20 Nisan",
-    "21 Nisan - 21 Mayıs",
-    "22 Mayıs - 22 Haziran",
-    "23 Haziran - 22 Temmuz",
-    "23 Temmuz - 22 Agustos",
-    "23 Agustos - 22 Eylül",
-    "23 Eylül - 22 Ekim",
-    "23 Ekim - 21 Kasım",
-    "22 Kasım - 21 Aralık",
-    "22 Aralık - 21 Ocak",
-    "22 Ocak - 19 Subat",
-    "20 Subat - 20 Mart"
+    "21 March - 20 April",
+    "21 April - 21 May",
+    "22 May - 22 June",
+    "23 June - 22 July",
+    "23 July - 22 August",
+    "23 August - 22 September",
+    "23 September - 22 Ekim",
+    "23 Ekim - 21 October",
+    "22 October - 21 December",
+    "22 December - 21 January",
+    "22 January - 19 February",
+    "20 February - 20 March"
   ];
 
   static const List<String> HOROSCOPE_GENERAL_FEATURES = [
-    "\tGenel Özellikler\n\n"
-        "\tYönetici yıldızınız: Mars\n\n"
-        "\tGrubunuz: Ateş\n\n"
-        "\tUğurlu gününüz: Salı\n\n"
-        "\tUğurlu sayınız: 8\n\n"
-        "\tUğurlu renginiz: Ateş kırmızısı\n\n"
-        "\tUğurlu taşlarınız: Opal, elmas, safir\n\n"
-        "\tUğurlu çicekleriniz: Lale, papatya\n\n"
-        "\tUğurlu kokularınız: Manolya, lavanta, ıtır\n\n"
-        "\tOlumlu özelliğiniz: Cesaret\n\n"
-        "\tOlumsuz özelliğiniz: Acelecilik\n\n"
-        "\tAnlaştığınız burçlar:Aslan, Yay\n\n"
+    "\tGeneral Features\n\n"
+        "\tYour manager star: Mars\n\n"
+        "\tYour group: Fire\n\n"
+        "\tLucky day: Tuesday\n\n"
+        "\tLucky number: 8\n\n"
+        "\tLucky color: Fire red\n\n"
+        "\tLucky rocks: Opal, diamond, saphire\n\n"
+        "\tLucky flowers: Tulip, daisy\n\n"
+        "\tLucky scents: Magnolia, lavender, attar\n\n"
+        "\tPositive features: Bravery\n\n"
+        "\tNegative features: Hasty\n\n"
+        "\tAgreed horoscope:Leo, Sagittarius\n\n"
         "\tAnlaşamadığınız burçlar: Yengeç, Terazi, Oğlak\n\n"
         "\tBaşarılı olacağınız meslekler: Politikacılık, yöneticilik, işletmecilik, mühendislik, ressamlık, müzisyenlik, oyunculuk\n\n"
         "\tBurcunuzdan olan ünlüler: Fatih Sultan Mehmet,Sakıp Sabancı, Descartes, Charlie Chaplin, Vincent Van Gogh, Zeki Alasya\n\n",
