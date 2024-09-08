@@ -1,9 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_horoscope_guider/model/horoscope.dart';
+import 'package:palette_generator/palette_generator.dart';
 
-class HoroscopeDetail extends StatelessWidget {
+class HoroscopeDetail extends StatefulWidget {
   final Horoscope selectedHoroscope;
   const HoroscopeDetail({required Horoscope this.selectedHoroscope, super.key});
+
+  @override
+  State<HoroscopeDetail> createState() => _HoroscopeDetailState();
+}
+
+class _HoroscopeDetailState extends State<HoroscopeDetail> {
+  Color appbarColor = Colors.transparent;
+  late PaletteGenerator _generator;
+
+  @override
+  void initState() {
+    super.initState();
+    findAppbarColor();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,15 +29,16 @@ class HoroscopeDetail extends StatelessWidget {
           SliverAppBar(
             expandedHeight: 250,
             pinned: true,
-            backgroundColor: Colors.pink,
+            backgroundColor: appbarColor,
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
-                selectedHoroscope.horoscopeName + " Horoscope and Features",
+                widget.selectedHoroscope.horoscopeName +
+                    " Horoscope and Features",
                 style: TextStyle(color: Colors.white, fontSize: 24),
               ),
               centerTitle: true,
               background: Image.asset(
-                "images/" + selectedHoroscope.horoscopeImage,
+                "images/" + widget.selectedHoroscope.horoscopeImage,
                 fit: BoxFit.cover,
               ),
             ),
@@ -33,7 +49,7 @@ class HoroscopeDetail extends StatelessWidget {
               padding: EdgeInsets.all(8),
               child: SingleChildScrollView(
                 child: Text(
-                  selectedHoroscope.horoscopeDetail,
+                  widget.selectedHoroscope.horoscopeDetail,
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),
@@ -42,5 +58,14 @@ class HoroscopeDetail extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void findAppbarColor() async {
+    _generator = await PaletteGenerator.fromImageProvider(
+        AssetImage("images/${widget.selectedHoroscope.horoscopeImage}"));
+
+    setState(() {
+      appbarColor = _generator.dominantColor!.color;
+    });
   }
 }
