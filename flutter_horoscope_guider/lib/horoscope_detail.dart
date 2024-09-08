@@ -17,7 +17,7 @@ class _HoroscopeDetailState extends State<HoroscopeDetail> {
   @override
   void initState() {
     super.initState();
-    findAppbarColor();
+    WidgetsBinding.instance.addPostFrameCallback((_) => findAppbarColor());
   }
 
   @override

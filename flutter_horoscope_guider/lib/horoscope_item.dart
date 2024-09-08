@@ -18,9 +18,8 @@ class HoroscopeItem extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: ListTile(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) =>
-                      HoroscopeDetail(selectedHoroscope: listedHoroscope)));
+              Navigator.pushNamed(context, "/horoscopeDetail",
+                  arguments: listedHoroscope);
             },
             leading: Image.asset(
               "images/" + listedHoroscope.horoscopeThumbnail,
