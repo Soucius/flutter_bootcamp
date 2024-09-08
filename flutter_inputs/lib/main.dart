@@ -2,8 +2,40 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late TextEditingController _emailController;
+  late FocusNode _focusNode;
+  int maxLineCount = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    _emailController = TextEditingController(text: "soucius@soucius.com");
+    _focusNode = FocusNode();
+    _focusNode.addListener(() {
+      setState(() {
+        if (_focusNode.hasFocus) {
+          maxLineCount = 3;
+        } else {
+          maxLineCount = 1;
+        }
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _focusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +50,22 @@ class MyApp extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
+                focusNode: _focusNode,
+                controller: _emailController,
                 keyboardType: TextInputType.number,
                 textInputAction: TextInputAction.next,
                 autofocus: true,
-                maxLines: 1,
+                maxLines: maxLineCount,
                 maxLength: 20,
                 onChanged: (String value) {
                   if (value.length > 3) {
-                    print(value);
+                    setState(() {
+                      _emailController.value = TextEditingValue(
+                        text: value,
+                        selection:
+                            TextSelection.collapsed(offset: value.length),
+                      );
+                    });
                   }
                 },
                 onSubmitted: (String value) {
@@ -47,6 +87,10 @@ class MyApp extends StatelessWidget {
               ),
             ),
             Padding(
+              padding: EdgeInsets.all(8),
+              child: Text(_emailController.text),
+            ),
+            Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
                 keyboardType: TextInputType.number,
@@ -55,6 +99,11 @@ class MyApp extends StatelessWidget {
             ),
           ],
         ),
+        floatingActionButton: FloatingActionButton(onPressed: () {
+          setState(() {
+            _emailController.text = "kaenj@soucius.com";
+          });
+        }),
       ),
     );
   }
