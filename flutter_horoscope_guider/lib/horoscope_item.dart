@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_horoscope_guider/horoscope_detail.dart';
 import 'package:flutter_horoscope_guider/model/horoscope.dart';
 
 class HoroscopeItem extends StatelessWidget {
