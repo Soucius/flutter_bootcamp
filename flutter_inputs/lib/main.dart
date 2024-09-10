@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_inputs/text_form_field.dart';
 
 void main() => runApp(const MyApp());
 
@@ -41,70 +42,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Form Actions'),
-        ),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: TextField(
-                focusNode: _focusNode,
-                controller: _emailController,
-                keyboardType: TextInputType.number,
-                textInputAction: TextInputAction.next,
-                autofocus: true,
-                maxLines: maxLineCount,
-                maxLength: 20,
-                onChanged: (String value) {
-                  if (value.length > 3) {
-                    setState(() {
-                      _emailController.value = TextEditingValue(
-                        text: value,
-                        selection:
-                            TextSelection.collapsed(offset: value.length),
-                      );
-                    });
-                  }
-                },
-                onSubmitted: (String value) {
-                  print(value);
-                },
-                cursorColor: Colors.pink,
-                decoration: InputDecoration(
-                  labelText: "Input Label",
-                  hintText: "Give email",
-                  // icon: Icon(Icons.add),
-                  prefixIcon: Icon(Icons.email),
-                  suffixIcon: Icon(Icons.access_alarm_outlined),
-                  filled: true,
-                  fillColor: Colors.orange,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(18)),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(8),
-              child: Text(_emailController.text),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: TextField(
-                keyboardType: TextInputType.number,
-                textInputAction: TextInputAction.next,
-              ),
-            ),
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(onPressed: () {
-          setState(() {
-            _emailController.text = "kaenj@soucius.com";
-          });
-        }),
-      ),
+      home: TextFormFieldUsage(),
     );
   }
 }
